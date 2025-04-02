@@ -170,11 +170,9 @@ from collections import Counter
 import math
 
 def calculate_mean(e1):
-    '''Calcula la media (promedio) de una lista de números'''
     return sum(e1) / len(e1) if e1 else None
 
 def calculate_median(e2):
-    '''Calcula la mediana de una lista de números'''
     if not e2:
         return None
     e2.sort()
@@ -183,7 +181,6 @@ def calculate_median(e2):
     return (e2[a] + e2[a - 1]) / 2 if valor % 2 == 0 else e2[a]
 
 def calculate_mode(e3):
-    '''Calcula la moda de una lista de números'''
     if not e3:
         return None
     moda = Counter(e3)
@@ -192,18 +189,15 @@ def calculate_mode(e3):
     return modota if len(modota) > 1 else modota[0]  
 
 def calculate_range(e4):
-    '''Calcula el rango de una lista de números'''
     return max(e4) - min(e4) if e4 else None
 
 def calculate_variance(e5):
-    '''Calcula la varianza de una lista de números'''
     if not e5 or len(e5) < 2:
         return None
     varianza = calculate_mean(e5)
     return sum((x - varianza) ** 2 for x in e5) / (len(e5) - 1)  
 
 def calculate_std(e6):
-    '''Calcula la desviación estándar de una lista de números'''
     var = calculate_variance(e6)
     return math.sqrt(var) if var is not None else None
 
@@ -223,7 +217,6 @@ print('Ejericio 1')
 import keyword
 
 def is_prime(primo):
-    '''Comprueba si un número es primo'''
     if primo < 2:
         return False
     for el in range(2, int(primo**0.5) + 1):
@@ -234,19 +227,16 @@ def is_prime(primo):
 #Ejercicio 2
 print('Ejericio 2')
 def unicos(unico):
-    '''Comprueba si todos los elementos de la lista son únicos'''
     return len(unico) == len(set(unico))
 
 #Ejercicio 3
 print('Ejericio 3')
 def mismo_tipo(tipo):
-    '''Comprueba si todos los elementos de la lista son del mismo tipo de datos'''
     return all(isinstance(item, type(tipo[0])) for item in tipo) if tipo else True
 
 #Ejercicio 4
 print('Ejericio 4')
 def variable(name):
-    '''Verifica si una variable proporcionada es válida en Python'''
     return name.isidentifier() and not keyword.iskeyword(name)
 
 #Ejercicio 5
@@ -2878,7 +2868,6 @@ countries = [
 #Ejercicio 5.1
 print('Ejericio 5.1')
 def most_spoken_languages(datos, top = 10):
-    '''Devuelve los idiomas más hablados en el mundo en orden descendente'''
     l = Counter()
 
     for country in datos:
@@ -2892,7 +2881,6 @@ print(most_spoken_languages(countries, 10))
 #Ejercicio 5.2
 print('Ejericio 5.2')
 def most_populated_countries(datos, top = 10):
-    '''Devuelve los países más poblados en orden descendente'''
     s = sorted(datos, key=lambda x: x['population'], reverse=True)
     return s[:top]
 
